@@ -9,6 +9,7 @@ import { syscall } from "../syscall.ts";
 export function run(
   cmd: string,
   args: string[],
+  timeout: number,
 ): Promise<{ stdout: string; stderr: string; code: number }> {
-  return syscall("shell.run", cmd, args);
+  return syscall("shell.run", cmd, args, timeout);
 }
